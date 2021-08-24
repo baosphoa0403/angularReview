@@ -1,0 +1,27 @@
+.chair {
+  margin: 10px 10px;
+  padding: 10px 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 2%;
+  background-image: linear-gradient(to right, #ff416c, #ff4b2b);
+  border: none;
+}
+.chair_disable {
+  margin: 10px 10px;
+  padding: 10px 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 2%;
+  // background-color: black;
+  cursor: not-allowed;
+}
+
+.chairSelected {
+  margin: 10px 10px;
+  padding: 10px 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 2%;
+  background-color: green;
+}

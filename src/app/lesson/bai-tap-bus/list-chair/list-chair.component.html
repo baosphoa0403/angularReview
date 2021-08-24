@@ -1,0 +1,24 @@
+<p>list-chair works!</p>
+<div class="center">
+  <h1 class="text-center bg-gray">Đặt vé xe bus nha</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <app-chair
+          *ngFor="let item of data"
+          [itemChair]="item"
+          (newItemEvent)="addChairParent($event)"
+        ></app-chair>
+      </div>
+      <div class="col-6">
+        <h1 class="text-center">
+          Danh Sách Ghế Đã Đặt ({{ arrayBooking.length || 0 }})
+        </h1>
+        <app-show-list-order
+          *ngFor="let item of arrayBooking"
+          [chairBooking]="item"
+        ></app-show-list-order>
+      </div>
+    </div>
+  </div>
+</div>

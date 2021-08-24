@@ -1,0 +1,12 @@
+buổi 1: chia module phải export component ra 
+buổi 2: one way binding - interpolation {{}}
+-properties binding (value) 
+-event binding (event)
+buổi 3 directive structure directive *ngIf [ngIf] ngFor, ngSwitch
+      Atribute directive ngclass ngStyle
+      ng-Container + *ngTemplateOutlet="haa"
+      ng-template #haha
+      ng-content là chèn nội dung cha vào con 
+Buổi 4 material UI 
+
+buổi 5

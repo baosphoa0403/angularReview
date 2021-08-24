@@ -1,0 +1,35 @@
+<ng-template [ngIf]="!isSelected">
+  <button
+    [disabled]="itemChair.TrangThai || null"
+    [ngClass]="{
+      chair: !itemChair.TrangThai,
+      chair_disable: itemChair.TrangThai
+    }"
+    (click)="handleAddChair(itemChair); handleSelected(true)"
+  >
+    {{ itemChair.TenGhe }}
+  </button>
+</ng-template>
+
+<ng-template [ngIf]="isSelected">
+  <button
+    class="chairSelected"
+    (click)="handleAddChair(itemChair); handleSelected(false)"
+  >
+    {{ itemChair.TenGhe }}
+  </button>
+</ng-template>
+<!-- [ngClass]="{'chair': itemChair.TrangThai, '' }" -->
+<!-- [disabled]="itemChair.TrangThai || null" -->
+<!-- class="chair" -->
+
+<!-- ngNonBindable  ko mún hiển thị data  -->
+<!-- [ngStyle]="
+!itemChair.TrangThai
+  ? {
+      color: 'red'
+    }
+  : {
+      color: 'blue'
+    }
+" -->

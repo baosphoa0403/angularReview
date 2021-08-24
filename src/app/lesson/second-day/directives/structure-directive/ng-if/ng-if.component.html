@@ -1,0 +1,35 @@
+<p>ng-if works!</p>
+<div class="hello" *ngIf="flag">
+  <h1>hello, {{ name }}</h1>
+</div>
+<button (click)="showAndHide(true)">click show</button>
+<button (click)="showAndHide(false)">click hidden</button>
+
+<div>
+  <button *ngIf="!isLogin; else logout1" (click)="login()">Login</button>
+</div>
+<!-- <div *ngIf="isLogin">
+  <button (click)="logout()">Logout</button>
+  <h1>hello, {{ name }}</h1>
+</div> -->
+<ng-template #logout1>
+  <button (click)="logout()">Logout</button>
+  <h1>hello, {{ name }}</h1>
+</ng-template>
+<!-- {{ isSelected }} -->
+<div class="select" [ngSwitch]="isSelected">
+  <div *ngSwitchCase="'red'" style="color: red">Màu {{ isSelected }}</div>
+  <div *ngSwitchCase="'blue'" style="color: blue">Màu {{ isSelected }}</div>
+  <div *ngSwitchCase="'yellow'" style="color: yellow">Màu {{ isSelected }}</div>
+  <div *ngSwitchCase="'black'" style="color: black">Màu {{ isSelected }}</div>
+</div>
+
+<!-- <ng-template> -->
+<div class="select-option">
+  <select #a (change)="handleOnChangeColor(a.value)">
+    <option *ngFor="let i of arrayColor; let STT = index" value="{{ i }}">
+      {{ STT }} - {{ i }}
+    </option>
+  </select>
+</div>
+<!-- </ng-template> -->

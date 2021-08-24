@@ -1,0 +1,12 @@
+(click)="logout()"<p>one-way works!</p>
+<h1>One way</h1>
+<ul>
+  <li>Interpolation</li>
+  <h1>{{ name }}</h1>
+  <li>Property binding</li>
+  <input type="text" [value]="name" #i />
+
+  <li>Event binding</li>
+  <p>Event binding</p>
+  <button (click)="show(i.value)">Click</button>
+</ul>
