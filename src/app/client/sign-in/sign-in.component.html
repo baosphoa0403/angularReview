@@ -1,0 +1,58 @@
+<form #loginForm="ngForm" (ngSubmit)="Submit(loginForm)">
+  <div class="form-group">
+    <label for="exampleInputEmail1">taikhoan</label>
+    <input
+      style="width: 200px"
+      type="text"
+      name="taikhoan"
+      ngModel
+      required
+      minlength="3"
+      maxlength="15"
+      class="form-control"
+      id="taikhoan"
+      #taikhoan="ngModel"
+    />
+  </div>
+  <div
+    class="alert"
+    *ngIf="taikhoan.errors && (taikhoan.dirty || taikhoan.touched)"
+  >
+    <h1 class="alert alert-danger" *ngIf="taikhoan.errors.required">
+      taikhoan is empty
+    </h1>
+    <h1 class="alert alert-danger" *ngIf="taikhoan.errors.minlength">
+      taikhoan min-length 7
+    </h1>
+    <h1 class="alert alert-danger" *ngIf="taikhoan.errors.maxlength">
+      taikhoan max-length 15
+    </h1>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputmatKhau1">matKhau</label>
+    <input
+      style="width: 200px"
+      type="password"
+      name="matKhau"
+      ngModel
+      required
+      class="form-control"
+      id="exampleInputmatKhau1"
+      placeholder="matKhau"
+      #matKhau="ngModel"
+    />
+  </div>
+  <div
+    class="alert"
+    *ngIf="matKhau.errors && (matKhau.dirty || matKhau.touched)"
+  >
+    <h1 class="alert alert-danger" *ngIf="matKhau.errors.required">
+      matKhau is empty
+    </h1>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">
+    Submit
+  </button>
+  <!--  -->
+</form>

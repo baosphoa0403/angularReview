@@ -1,0 +1,21 @@
+<div class="card">
+  <img
+    class="card-img-top"
+    [src]="movie.hinhAnh"
+    alt=""
+    style="width: 200px; height: 300px"
+  />
+  <div class="card-body">
+    <h4 class="card-title">{{ movie.tenPhim }}</h4>
+    <a
+      class="btn btn-success"
+      [routerLink]="['/client/detail-movie', movie.maPhim]"
+    >
+      Detail
+    </a>
+    <button class="btn btn-info" data-toggle="modal" data-target="#modelId">
+      Xem nhanh
+    </button>
+  </div>
+</div>
+<!-- [queryParams]="{ id: movie.maPhim, tenPhim: movie.tenPhim }" -->

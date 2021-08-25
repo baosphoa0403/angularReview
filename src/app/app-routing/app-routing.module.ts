@@ -6,6 +6,7 @@ import { LessonComponent } from '../lesson/lesson.component';
 import { MaterialComponent } from '../material/material.component';
 import { PageNotFoundComponent } from '../page-not-found-component/page-not-found-component.component';
 import { ClientModule } from '../client/client.module';
+import { SignInComponent } from '../client/sign-in/sign-in.component';
 
 const routes: Routes = [
   {
@@ -23,8 +24,17 @@ const routes: Routes = [
       import('../client/client.module').then((m) => m.ClientModule),
   },
   {
+    path: 'admin',
+    loadChildren: () =>
+      import('../admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
     path: 'material',
     component: MaterialComponent,
+  },
+  {
+    path: 'login',
+    component: SignInComponent,
   },
   { path: '**', component: PageNotFoundComponent },
 ];

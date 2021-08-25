@@ -1,1 +1,8 @@
-<p>about works!</p>
+<p>List Movie</p>
+<div class="container">
+  <div class="row">
+    <div class="col-3" *ngFor="let item of listFilm">
+      <app-movie [movie]="item"></app-movie>
+    </div>
+  </div>
+</div>

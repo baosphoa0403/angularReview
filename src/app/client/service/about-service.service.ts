@@ -18,6 +18,16 @@ export class AboutServiceService {
       })
     );
   };
+
+  getDetailMovie = (id: string): Observable<any> => {
+    const url = `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${id}`;
+    return this.http.get(url).pipe(
+      tap(() => {}),
+      catchError((error) => {
+        return this.handleError(error);
+      })
+    );
+  };
   handleError(error: any) {
     //Xử lý lỗi
     switch (error.status) {
