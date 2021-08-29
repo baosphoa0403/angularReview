@@ -10,6 +10,7 @@ import { AboutServiceService } from '../service/about-service.service';
 export class AboutComponent implements OnInit {
   constructor(private aboutServiceService: AboutServiceService) {}
   listFilm: any[] = [];
+  
   private subListFilm = new Subscription();
 
   ngOnInit(): void {

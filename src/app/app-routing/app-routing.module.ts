@@ -7,6 +7,8 @@ import { MaterialComponent } from '../material/material.component';
 import { PageNotFoundComponent } from '../page-not-found-component/page-not-found-component.component';
 import { ClientModule } from '../client/client.module';
 import { SignInComponent } from '../client/sign-in/sign-in.component';
+import { SignUpComponent } from '../client/sign-up/sign-up.component';
+import { CandeactiveGuardGuard } from '../core/guard/candeactive-guard.guard';
 
 const routes: Routes = [
   {
@@ -35,6 +37,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: SignInComponent,
+  },
+  {
+    path: 'signUp',
+    component: SignUpComponent,
+    // canDeactivate: [CandeactiveGuardGuard]
   },
   { path: '**', component: PageNotFoundComponent },
 ];

@@ -1,4 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
+import { SharedService } from 'src/app/core/shared/shared.service';
 
 @Component({
   selector: 'app-movie',
@@ -7,7 +15,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
   @Input() movie: any;
-  constructor() {}
+  constructor(private dataShared: SharedService) {}
 
   ngOnInit(): void {}
+  viewFast = (movie: any) => {
+    this.dataShared.sharingDataDisplay(true);
+    this.dataShared.sharingDataDetailMovie(movie);
+  };
 }

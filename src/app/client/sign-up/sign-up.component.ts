@@ -1,29 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/client/service/user.service';
-// import { UserService } from '../service/user.service';
+import { UserService } from '../service/user.service';
+
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class SignUpComponent implements OnInit {
   public formSignUp!: FormGroup;
 
   constructor(private userService: UserService, private router: Router) {}
   onSubmit = () => {
     console.log(this.formSignUp.value);
     console.log(this.soDt?.errors);
-    this.userService
-      .addUserForAdmin(this.formSignUp.value)
-      .subscribe((data) => {
-        console.log(data);
-        if (data) {
-          alert('đăng ký thành tài khoản thành công');
-          this.router.navigateByUrl('/login');
-        }
-      });
+    this.userService.signUp(this.formSignUp.value).subscribe((data) => {
+      console.log(data);
+      if (data) {
+        alert('đăng ký thành tài khoản thành công');
+        this.router.navigateByUrl('/login');
+      }
+    });
   };
 
   ngOnInit(): void {
@@ -57,5 +55,10 @@ export class DashboardComponent implements OnInit {
   }
   get hoTen() {
     return this.formSignUp.get('hoTen');
+  }
+
+  @HostListener('window:beforeunload', ['$event'])
+  canDeactive() {
+    return !this.formSignUp.dirty;
   }
 }

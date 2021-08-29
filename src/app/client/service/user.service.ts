@@ -14,10 +14,30 @@ export class UserService {
     const url =
       'https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap';
     return this.http.post(url, data).pipe(
-      tap()
-      // catchError((error) => {
-      //   return this.handleError(error);
-      // })
+      tap(),
+      catchError((error) => {
+        return this.handleError(error);
+      })
+    );
+  };
+
+  signUp = (data: any): Observable<any> => {
+    const url = 'https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy';
+    return this.http.post(url, data).pipe(
+      tap(),
+      catchError((error) => {
+        return this.handleError(error);
+      })
+    );
+  };
+  addUserForAdmin = (data: any): Observable<any> => {
+    const url =
+      'https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung';
+    return this.http.post(url, data).pipe(
+      tap(),
+      catchError((error) => {
+        return this.handleError(error);
+      })
     );
   };
   handleError(error: any) {

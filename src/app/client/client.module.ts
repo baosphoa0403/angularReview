@@ -6,8 +6,12 @@ import { ClientComponent } from './client.component';
 import { MovieComponent } from './movie/movie.component';
 import { DetailMovieComponent } from './detail-movie/detail-movie.component';
 import { SignInComponent } from './sign-in/sign-in.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { ShortCutPipe } from './short-cut.pipe';
+import { ModalMovieShareComponent } from './modal-movie-share/modal-movie-share.component';
+// import { ShortCutPipePipe } from './short-cut.pipe';
 const routes: Routes = [
   {
     path: '',
@@ -28,12 +32,16 @@ const routes: Routes = [
     MovieComponent,
     DetailMovieComponent,
     SignInComponent,
+    SignUpComponent,
+    ShortCutPipe,
+    ModalMovieShareComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
 })
 export class ClientModule {}
